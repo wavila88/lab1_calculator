@@ -1,0 +1,52 @@
+buildscript {
+	ext {
+		DEPENDENCY_MANAGEMENT_PLUGIN_VERSION = '1.0.6.RELEASE'
+		SPRING_BOOT_VERISON = '2.3.2.RELEASE'
+		SPRING_CLOUD_VERSION = 'Greenwich.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("io.spring.gradle:dependency-management-plugin:${DEPENDENCY_MANAGEMENT_PLUGIN_VERSION}")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${SPRING_BOOT_VERISON}")
+
+	}
+}
+
+plugins {
+	id 'org.springframework.boot' version '2.4.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+/* -------------------------------- */
+/* - Include other gradle scripts - */
+/* -------------------------------- */
+def gradlePath = "${rootProject.projectDir}${project.property('gradle.path')}"
+apply from: "${gradlePath}/build-java.gradle"
+apply from: "${gradlePath}/build-config.gradle"
+apply from: "${gradlePath}/build-dependencies.gradle"
+apply from: "${gradlePath}/build-spring.gradle"
+apply from: "${gradlePath}/build-test-dependencies.gradle"
+
+apply plugin: 'io.spring.dependency-management'
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.boot:spring-boot-dependencies:${SPRING_BOOT_VERISON}")
+	}
+}
+
+test {
+	useJUnitPlatform()
+}

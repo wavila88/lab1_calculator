@@ -1,0 +1,11 @@
+def allTestCoverageFile = "$buildDir/jacoco/allTestCoverage.exec"
+def excledePatterns = [
+        
+]
+sonarqube {
+    // Ensure all generated code is NOT analyzed by Sonarqube
+    properties {
+        property "sonar.exclusions", excledePatterns
+        property "sonar.jacoco.reportPaths", allTestCoverageFile
+    }
+}

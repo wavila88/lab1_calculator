@@ -1,0 +1,26 @@
+/* ============================================================================
+   This file contains the configurations for test dependencies project
+   ============================================================================
+
+   Included from: "${rootProject.projectDir}/build.gradle"
+   ============================================================================
+ */
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // --- Test Dependencies ---
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile 'org.junit.jupiter:junit-jupiter-api'
+    testCompile 'org.junit.jupiter:junit-jupiter-params'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    // Mockito
+    testCompile('org.mockito:mockito-junit-jupiter:2.24.0')
+    testCompile('org.mockito:mockito-core:2.24.0')
+
+    testCompile('net.bytebuddy:byte-buddy:1.9.10')
+
+}
