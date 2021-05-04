@@ -54,5 +54,4 @@ public class CalculatorController {
         return new ResponseEntity<>(calculatorService.division(number1, number2), HttpStatus.OK);
     }
 
-
 }
