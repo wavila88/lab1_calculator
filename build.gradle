@@ -1,7 +1,7 @@
 buildscript {
 	ext {
-		DEPENDENCY_MANAGEMENT_PLUGIN_VERSION = '1.0.6.RELEASE'
-		SPRING_BOOT_VERISON = '2.3.2.RELEASE'
+		DEPENDENCY_MANAGEMENT_PLUGIN_VERSION = '1.0.0.RELEASE'
+		SPRING_BOOT_VERISON = '2.1.4.RELEASE'
 		SPRING_CLOUD_VERSION = 'Greenwich.RELEASE'
 	}
 	repositories {
@@ -16,9 +16,6 @@ buildscript {
 
 apply plugin: 'org.springframework.boot'
 
-repositories {
-	mavenCentral()
-}
 
 /* -------------------------------- */
 /* - Include other gradle scripts - */
