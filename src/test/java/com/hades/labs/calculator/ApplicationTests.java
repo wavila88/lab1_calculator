@@ -16,7 +16,7 @@ class ApplicationTests {
 	@Test
 	void contextLoads() {
 		Double response = calculatorServiceImpl.sum(1d,2d);
-		Assert.assertEquals(java.util.Optional.of(response), java.util.Optional.of(3d));
+		Assert.assertEquals(java.util.Optional.of(response), java.util.Optional.of(2d));
 	}
 
 }
